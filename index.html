@@ -4,11 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Portal Sports</title>
+    <title>RakibPortal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="mx-auto w-10/12">
     <header>
-
+        <div class="navbar bg-base-100">
+            <div class="flex-1">
+              <a class="btn btn-ghost normal-case text-xl">RakibPortal</a>
+            </div>
+            <div class="flex-none">
+              <div class="dropdown dropdown-end">
+                    <span class="text-news font-semibold">News</span>
+                      <span class="text-gray-500 font-semibold">Blog</span>
+              </div>
+              <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                  <div id="profile-icon" class="w-10 rounded-full">
+                    <img src="https://placeimg.com/80/80/people" />
+                  </div>
+                </label>
+                <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                  <li>
+                    <a class="justify-between">
+                      Profile
+                      <span class="badge">New</span>
+                    </a>
+                  </li>
+                  <li><a>Settings</a></li>
+                  <li><a>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div id="">
+            <ul id="display-categories" class="flex ">
+              <!-- <li class="p-2">News</li>
+              <li class="p-2">News</li>
+              <li class="p-2">News</li>
+              <li class="p-2">News</li>
+              <li class="p-2">News</li>
+              <li class="p-2">News</li>
+              <li class="p-2">News</li> -->
+            </ul>
+          </div>
     </header>
     <main>
         <section>
