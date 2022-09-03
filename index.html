@@ -19,38 +19,7 @@
           <div class="flex-none">
             <div class="dropdown dropdown-end">
               <span class="text-news font-semibold p-2">News</span>
-                  <!-- The button to open modal -->
-              <label id="blog-post"  for="blog-modal" class="btn modal-button bg-white hover:bg-white text-gray-500 font-semibold p-3 border-0 rounded-none">Blog</label>
-
-              <!-- Put this part before body tag -->
-              <input type="checkbox" id="blog-modal" class="modal-toggle" />
-              <div class="modal">
-                <div class="modal-box">
-                  <h3 class="font-bold text-lg">What is the difference between var, let, and const?</h3>
-                  <p class="py-4"><span class="font-semibold">Ver:</span> The scope of a var variable is functional scope. It can be updated and re-declared into the scope. It can be declared without initialization.	It can be accessed without initialization as its default value is "undefined".</p>
-                  <p class="py-4"><span class="font-semibold">Let:</span> The scope of a let variable is block scope. It can be updated but cannot be re-declared into the scope.	It can be declared without initialization.	It cannot be accessed without initialization otherwise it will give 'referenceError'.</p>
-                  <p class="py-4"><span class="font-semibold">Const:</span> The scope of a const variable is block scope. It cannot be updated or re-declared into the scope. It cannot be declared without initialization. It cannot be accessed without initialization, as it cannot be declared without initialization.</p>
-                  <!-- Regular function vs Arrow function -->
-                  <h3 class="font-bold text-lg">What is the difference between regular function and arrow function?</h3>
-                  <p class="py-4"><span class="font-semibold">Regular function:</span> Inside of a regular JavaScript function, this value (aka the execution context) is dynamic. The dynamic context means that the value of this depends on how the function is invoked. In JavaScript, there are 4 ways you can invoke a regular function.</p>
-                  <p class="py-4"><span class="font-semibold">Arrow function:</span> The behavior of this inside of an arrow function differs considerably from the regular function's this behavior. The arrow function doesn't define its own execution context.
-
-                    No matter how or where being executed, this value inside of an arrow function always equals this value from the outer function. In other words, the arrow function resolves this lexically.
-                    
-                    In the following example, myMethod() is an outer function of callback() arrow function.</p>
-                  
-                  
-                  <h3 class="font-bold text-lg">Why we should template string?</h3>
-                  <p class="py-4">Template strings are a powerful feature of modern JavaScript released in ES6. It lets us insert/interpolate variables and expressions into strings without needing to concatenate like in older versions of JavaScript. It allows us to create strings that are complex and contain dynamic elements. Another great thing that comes with template strings are tags. Tags are functions that take a string and the decomposed parts of the string as parameters and are great for converting strings to different entities.
-
-                    The syntax for creating template strings is by using backticks to delimit them. For example, we can write:
-                    
-                    `This is a string` Along with having normal strings, template literals can also contain other parts called placeholders, which are embedded expressions delimited by a dollar sign and curly braces: ${expression}.</p>
-                  <div class="modal-action">
-                    <label for="blog-modal" class="btn">Close!</label>
-                  </div>
-                </div>
-              </div>
+              <a href="blog.html">Blog</a>
 
             </div>
             <div class="dropdown dropdown-end">
@@ -87,9 +56,8 @@
          <div class="py-2 my-3">
           <h3 class="font-bold text-lg">Sort By View: <div class="dropdown dropdown-end">
             <label tabindex="0" class="btn m-1 text-gray-500 bg-white hover:bg-blue-100 border-0">Default <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></label>
-            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-64">
-              <li id="most-visited"><a>Most Views</a></li>
-              <li id="lowest-visited"><a>Low Views</a></li>
+            <ul id="display-views" tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-64">
+              
             </ul>
           </div></h3>
          </div>

@@ -14,7 +14,7 @@ const displayCategories = (categories) => {
     const displayCategory = document.getElementById('display-categories');
     categories.forEach(category => {
         const { category_id, category_name } = category;
-        console.log(category);
+        // console.log(category);
         const categoryli = document.createElement('li');
         categoryli.classList.add('py-3', 'px-2', 'text-gray-500', 'hover:bg-sky-100', 'active:bg-sky-400', 'rounded-xl');
         categoryli.innerHTML = `
@@ -27,7 +27,7 @@ const displayCategories = (categories) => {
 
 const loadCategoriesDetails = async category_id => {
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
-    console.log(url)
+    // console.log(url)
     try {
         const res = await fetch(url);
         const data = await res.json();
@@ -40,17 +40,30 @@ const loadCategoriesDetails = async category_id => {
 
 const displayCategoriesPosts = (posts) => {
     const displayContent = document.getElementById('display-content');
-    console.log(posts.length);
+    const displayViews = document.getElementById('display-views');
+    // console.log(posts.length);
     const displayPostItemLength = document.getElementById('display-post-length');
     displayPostItemLength.innerHTML = `
-        <h3 class="ml-8 font-semibold">${posts.length ? posts.length : 'No posts'} items found for category <span id=""></span></h3>
+        <h3 class="ml-8 font-semibold">${posts.length ? posts.length : 'No posts'} items found for category</h3>
     `
     loddingSpinner(true)
     displayContent.innerHTML = ``
+    const showMost = posts.sort((mostView, lowestView) => {
+        console.log(mostView.total_view, lowestView.total_view);
+         return mostView.total_view - lowestView.total_view
+    });
     posts.forEach(post => {
         const { _id, total_view, title, author, thumbnail_url, details, rating} = post;
+        // console.log(total_view);
+        displayViews.innerHTML = `
+        <li id="most-visited"><a class="text-gray-500" onclick="loadCategoriesDetails('${_id}')">Most Views</a></li>
+        <li id="lowest-visited"><a class="text-gray-500">Low Views</a></li>
+        `
+        const mostVisited = document.getElementById('most-visited');
+        
         const { number, badge } = rating;
         const { name, published_date, img } = author;
+        
         const postDiv = document.createElement('div')
         postDiv.innerHTML = `
         <div class="card card-side bg-base-100 shadow-xl mb-5">
@@ -93,7 +106,7 @@ const loadPostsModal = async news_id => {
 const displayPostsModal = newses => {
     const displayModal = document.getElementById('display-modal');
     newses.forEach(news => {
-        console.log(news);
+        // console.log(news);
         const { _id, total_view, title, author, image_url, details, rating} = news;
         const { number, badge } = rating;
         const { name, published_date, img } = author;
