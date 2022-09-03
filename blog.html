@@ -5,8 +5,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="w-11/12 mx-auto">
+    <header>
+        <div class="navbar bg-base-100">
+            <div class="flex-1">
+              <a class="btn btn-ghost normal-case text-xl"><span class="bg-gray-500 text-white px-2 py-2 rounded-lg">Rakib</span> <span class="text-gray-500 pl-2">Portal</span></a>
+            </div>
+            <div class="flex-none">
+              <div class="dropdown dropdown-end">
+                <span class="text-gray-500 font-semibold p-2"><a href="index.html">News</a></span>
+                <a class="font-bold text-news" href="blog.html">Blog</a>
+  
+              </div>
+              <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                  <div id="profile-icon" class="w-10 rounded-full">
+                    <img src="https://placeimg.com/80/80/people" />
+                  </div>
+                </label>
+                <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                  <li>
+                    <a class="justify-between">
+                      Profile
+                      <span class="badge">New</span>
+                    </a>
+                  </li>
+                  <li><a>Settings</a></li>
+                  <li><a>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr class="my-4">
+          <div>
+            <ul id="display-categories" class="sm:flex justify-evenly">
+  
+            </ul>
+          </div>
+    </header>
+    <main>
+        <h3 class="font-bold text-lg">What is the difference between var, let, and const?</h3>
+    <p class="py-4"><span class="font-semibold">Ver:</span> The scope of a var variable is functional scope. It can be updated and re-declared into the scope. It can be declared without initialization.	It can be accessed without initialization as its default value is "undefined".</p>
+    <p class="py-4"><span class="font-semibold">Let:</span> The scope of a let variable is block scope. It can be updated but cannot be re-declared into the scope.	It can be declared without initialization.	It cannot be accessed without initialization otherwise it will give 'referenceError'.</p>
+    <p class="py-4"><span class="font-semibold">Const:</span> The scope of a const variable is block scope. It cannot be updated or re-declared into the scope. It cannot be declared without initialization. It cannot be accessed without initialization, as it cannot be declared without initialization.</p>
+    <!-- Regular function vs Arrow function -->
+    <h3 class="font-bold text-lg">What is the difference between regular function and arrow function?</h3>
+    <p class="py-4"><span class="font-semibold">Regular function:</span> Inside of a regular JavaScript function, this value (aka the execution context) is dynamic. The dynamic context means that the value of this depends on how the function is invoked. In JavaScript, there are 4 ways you can invoke a regular function.</p>
+    <p class="py-4"><span class="font-semibold">Arrow function:</span> The behavior of this inside of an arrow function differs considerably from the regular function's this behavior. The arrow function doesn't define its own execution context.
+
+      No matter how or where being executed, this value inside of an arrow function always equals this value from the outer function. In other words, the arrow function resolves this lexically.
+      
+      In the following example, myMethod() is an outer function of callback() arrow function.</p>
     
+    
+    <h3 class="font-bold text-lg">Why we should template string?</h3>
+    <p class="py-4">Template strings are a powerful feature of modern JavaScript released in ES6. It lets us insert/interpolate variables and expressions into strings without needing to concatenate like in older versions of JavaScript. It allows us to create strings that are complex and contain dynamic elements. Another great thing that comes with template strings are tags. Tags are functions that take a string and the decomposed parts of the string as parameters and are great for converting strings to different entities.
+
+      The syntax for creating template strings is by using backticks to delimit them. For example, we can write:
+      
+      `This is a string` Along with having normal strings, template literals can also contain other parts called placeholders, which are embedded expressions delimited by a dollar sign and curly braces: ${expression}.</p>
+    </main>
 </body>
 </html>
