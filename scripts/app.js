@@ -137,6 +137,5 @@ const loddingSpinner = isLodding => {
     }
 }
 
-const displayPostLength = 
 
 loadCategories()
