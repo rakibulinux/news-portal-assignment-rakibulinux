@@ -64,7 +64,7 @@ const displayCategoriesPosts = (posts) => {
         
         const postDiv = document.createElement('div')
         postDiv.innerHTML = `
-        <div class="card card-side bg-base-100 shadow-xl mb-5">
+        <div class="card-side bg-base-100 shadow-xl mb-5 md:flex">
         <figure class="p-2"><img src="${thumbnail_url}" alt="Movie"></figure>
         <div class="card-body w-64">
         <h2 class="card-title">${title}</h2>
