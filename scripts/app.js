@@ -66,4 +66,45 @@ const displayCategoriesPosts = posts => {
     })
 }
 
+const loadPostsModal = async news_id => {
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`
+    const res = await fetch(url);
+    const data = await res.json();
+    displayPostsModal(data.data);
+}
+
+const displayPostsModal = newses => {
+    const displayModal = document.getElementById('display-modal');
+    newses.forEach(news => {
+        console.log(news);
+        const { _id, total_view, title, author, image_url, details, rating} = news;
+        const { number, badge } = rating;
+        const { name, published_date, img } = author;
+        displayModal.innerHTML = `
+        <div class="modal-box">
+        <img src="${image_url}" alt="">
+        <h2 class="card-title">${title}</h2>
+        <p class="py-4">${details}</p>
+        <div class="card-actions justify-between items-center">
+            <div class="flex items-center">
+                <div id="profile-icon" class="w-10 rounded-full">
+                <img src="${img}" alt="">
+                </div>
+                <div class="ml-2">
+                <p>${name ? name : 'No author'}</p>
+   
+                </div>
+            </div>
+            <div class="flex items-center justify-evenly">
+                <img src="../images/carbon_view.png" alt="">
+                <p class="ml-2">${total_view ? total_view : "No view"}</p>
+            </div>
+        <div class="modal-action">
+          <label for="my-modal" class="btn">Close</label>
+        </div>
+      </div>
+        `
+    })
+}
+
 loadCategories()
