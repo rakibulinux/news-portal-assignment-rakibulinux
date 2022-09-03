@@ -1,8 +1,13 @@
 const loadCategories = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayCategories(data.data.news_category);
+    try{
+        const res = await fetch(url);
+        const data = await res.json();
+        displayCategories(data.data.news_category);
+    }
+    catch(error){
+        console.log(error);
+    }
 };
 
 const displayCategories = (categories) => {
@@ -11,25 +16,36 @@ const displayCategories = (categories) => {
         const { category_id, category_name } = category;
         console.log(category);
         const categoryli = document.createElement('li');
-        categoryli.classList.add('p-4', 'text-gray-500');
+        categoryli.classList.add('py-3', 'px-2', 'text-gray-500', 'hover:bg-sky-100', 'active:bg-sky-400', 'rounded-xl');
         categoryli.innerHTML = `
             <a href="#" onclick="loadCategoriesDetails('${category_id}')" class="" >${category_name}</a>
         `;
         displayCategory.appendChild(categoryli);
-        // displayCategory.innerHTML = category;
+        // displayCategoryName.innerText = '';
     })
 }
 
 const loadCategoriesDetails = async category_id => {
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
     console.log(url)
-    const res = await fetch(url);
-    const data = await res.json();
-    displayCategoriesPosts(data.data)
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayCategoriesPosts(data.data);
+    }
+    catch (err) {
+        console.log(err);
+    }
 };
 
-const displayCategoriesPosts = posts => {
+const displayCategoriesPosts = (posts) => {
     const displayContent = document.getElementById('display-content');
+    console.log(posts.length);
+    const displayPostItemLength = document.getElementById('display-post-length');
+    displayPostItemLength.innerHTML = `
+        <items>${posts.length ? posts.length : 'No posts'} items found for category <span id=""></span></h3>
+    `
+    loddingSpinner(true)
     displayContent.innerHTML = ``
     posts.forEach(post => {
         const { _id, total_view, title, author, thumbnail_url, details, rating} = post;
@@ -44,8 +60,8 @@ const displayCategoriesPosts = posts => {
         <p>${details.slice(0, 500,) + "..."}</p>
         <div class="card-actions justify-between items-center">
             <div class="flex items-center">
-                <div id="profile-icon" class="w-10 rounded-full">
-                <img src="${img}" alt="">
+                <div id="profile-icon">
+                <img class="w-10 rounded-full" src="${img}" alt="">
                 </div>
                 <div class="ml-2">
                 <p>${name ? name : 'No author'}</p>
@@ -57,13 +73,14 @@ const displayCategoriesPosts = posts => {
                 <p class="ml-2">${total_view ? total_view : "No view"}</p>
             </div>
             <!-- The button to open modal -->
-            <label onclick="loadPostsModal('${_id}')"  for="my-modal" class="btn modal-button">Read More</label>
+            <label onclick="loadPostsModal('${_id}')"  for="read-more-modal" class="btn modal-button">Read More</label>
         </div>
         </div>
         </div>
         `
         displayContent.appendChild(postDiv)
     })
+    loddingSpinner(false);
 }
 
 const loadPostsModal = async news_id => {
@@ -100,11 +117,26 @@ const displayPostsModal = newses => {
                 <p class="ml-2">${total_view ? total_view : "No view"}</p>
             </div>
         <div class="modal-action">
-          <label for="my-modal" class="btn">Close</label>
+          <label for="read-more-modal" class="btn">Close</label>
         </div>
       </div>
         `
     })
 }
+
+const loddingSpinner = isLodding => {
+    const loddingButton = document.getElementById('lodding-button');
+    if (isLodding) {
+        loddingButton.classList.remove('hidden')
+        console.log('lodding hidden remove');
+    }
+    else {
+        loddingButton.classList.add('hidden')
+        console.log('lodding hidden add');
+
+    }
+}
+
+const displayPostLength = 
 
 loadCategories()
