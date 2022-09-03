@@ -43,7 +43,7 @@ const displayCategoriesPosts = (posts) => {
     console.log(posts.length);
     const displayPostItemLength = document.getElementById('display-post-length');
     displayPostItemLength.innerHTML = `
-        <items>${posts.length ? posts.length : 'No posts'} items found for category <span id=""></span></h3>
+        <h3 class="ml-8 font-semibold">${posts.length ? posts.length : 'No posts'} items found for category <span id=""></span></h3>
     `
     loddingSpinner(true)
     displayContent.innerHTML = ``
