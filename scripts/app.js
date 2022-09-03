@@ -40,7 +40,6 @@ const loadCategoriesDetails = async category_id => {
 
 const displayCategoriesPosts = (posts) => {
     const displayContent = document.getElementById('display-content');
-    const displayViews = document.getElementById('display-views');
     // console.log(posts.length);
     const displayPostItemLength = document.getElementById('display-post-length');
     displayPostItemLength.innerHTML = `
@@ -50,15 +49,14 @@ const displayCategoriesPosts = (posts) => {
     displayContent.innerHTML = ``
     const showMost = posts.sort((mostView, lowestView) => {
         console.log(mostView.total_view, lowestView.total_view);
-         return mostView.total_view - lowestView.total_view
+         return lowestView.total_view - mostView.total_view
     });
+    showMost.forEach(mostView => {
+        console.log(mostView)
+    })
     posts.forEach(post => {
         const { _id, total_view, title, author, thumbnail_url, details, rating} = post;
         // console.log(total_view);
-        displayViews.innerHTML = `
-        <li id="most-visited"><a class="text-gray-500" onclick="loadCategoriesDetails('${_id}')">Most Views</a></li>
-        <li id="lowest-visited"><a class="text-gray-500">Low Views</a></li>
-        `
         const mostVisited = document.getElementById('most-visited');
         
         const { number, badge } = rating;
@@ -92,9 +90,13 @@ const displayCategoriesPosts = (posts) => {
         </div>
         `
         displayContent.appendChild(postDiv)
+        // mostVisited.appendChild(postDiv)
+        
+        
     })
     loddingSpinner(false);
 }
+
 
 const loadPostsModal = async news_id => {
     const url = `https://openapi.programming-hero.com/api/news/${news_id}`
@@ -102,6 +104,11 @@ const loadPostsModal = async news_id => {
     const data = await res.json();
     displayPostsModal(data.data);
 }
+
+document.getElementById('most-visits').addEventListener('click', function(){
+    const mostVisited = document.getElementById('most-visited')
+    loadCategoriesDetails()
+})
 
 const displayPostsModal = newses => {
     const displayModal = document.getElementById('display-modal');
