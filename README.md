@@ -1,8 +1,5 @@
 # news-portal-assignemnt
-Please create yoru private repo 
-## [https://classroom.github.com/a/PZ8KfL5q](https://classroom.github.com/a/PZ8KfL5q)
-
-### Private Repo Link: [https://classroom.github.com/a/PZ8KfL5q](https://classroom.github.com/a/PZ8KfL5q)
+### Private Repo Link: [https://singular-gnome-94a64d.netlify.app/](https://singular-gnome-94a64d.netlify.app/)
 
 
 ----------------
